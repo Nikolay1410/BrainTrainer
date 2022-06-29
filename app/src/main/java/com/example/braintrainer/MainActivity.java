@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         return String.format(Locale.getDefault(), "%02d : %02d", minutes, seconds);
     }
 
+
     public void onClickAnswer(View view) {
         if (!gameOver) {
             TextView textView = (TextView) view;
