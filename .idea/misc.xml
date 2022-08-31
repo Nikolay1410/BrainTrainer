@@ -3,8 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kalya/AndroidStudioProjects/GitHab/BrainTrainer/app/src/main/res/drawable/corners_bottom_radius.xml" value="0.145" />
+        <entry key="..\:/Users/kalya/AndroidStudioProjects/GitHab/BrainTrainer/app/src/main/res/drawable/corners_radius.xml" value="0.145" />
+        <entry key="..\:/Users/kalya/AndroidStudioProjects/GitHab/BrainTrainer/app/src/main/res/drawable/corners_top_radius.xml" value="0.184" />
+        <entry key="..\:/Users/kalya/AndroidStudioProjects/GitHab/BrainTrainer/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/kalya/AndroidStudioProjects/GitHab/BrainTrainer/app/src/main/res/drawable/krugliye_ugli.xml" value="0.145" />
+        <entry key="..\:/Users/kalya/AndroidStudioProjects/GitHab/BrainTrainer/app/src/main/res/layout/activity_game.xml" value="0.1" />
+        <entry key="..\:/Users/kalya/AndroidStudioProjects/GitHab/BrainTrainer/app/src/main/res/layout/activity_level.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/kalya/AndroidStudioProjects/GitHab/BrainTrainer/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/kalya/AndroidStudioProjects/GitHab/BrainTrainer/app/src/main/res/layout/activity_score.xml" value="0.22" />
+        <entry key="..\:/Users/kalya/AndroidStudioProjects/GitHab/BrainTrainer/app/src/main/res/layout/level_item.xml" value="0.22" />
       </map>
     </option>
   </component>
