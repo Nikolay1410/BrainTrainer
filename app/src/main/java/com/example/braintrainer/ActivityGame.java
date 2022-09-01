@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,13 +54,15 @@ public class ActivityGame extends AppCompatActivity {
     int positionRestart;
     int nextLevel;
 
+    boolean exit = true;
+
     private static long back_pressed;
 
     @Override
     public void onBackPressed() {
         if (back_pressed + 2000 > System.currentTimeMillis()) {
             super.onBackPressed();
-
+            exit = false;
         }
         else
             Toast.makeText(getBaseContext(), "Если хотите выйти нажмите кнопку дважды",
@@ -108,31 +111,40 @@ public class ActivityGame extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                gameOver = true;
-                if (countOfRightAnswer >= maxResult){
-                    preferences.edit().putInt("max", countOfRightAnswer).apply();
+                if (exit) {
+                    gameOver = true;
+                    if (countOfRightAnswer >= maxResult) {
+                        preferences.edit().putInt("max", countOfRightAnswer).apply();
+                    }
+                    Intent intent = new Intent(ActivityGame.this, ScoreActivity.class);
+                    switch (positionRestart) {
+                        case 0:
+                            intent.putExtra("result", countOfRightAnswer);
+                            break;
+                        case 1:
+                            intent.putExtra("result", countOfRightAnswer * 2);
+                            break;
+                        case 2:
+                            intent.putExtra("result", countOfRightAnswer * 3);
+                            break;
+                        case 3:
+                            intent.putExtra("result", countOfRightAnswer * 4);
+                            break;
+                        case 4:
+                            intent.putExtra("result", countOfRightAnswer * 6);
+                            break;
+                        case 5:
+                            intent.putExtra("result", countOfRightAnswer * 8);
+                            break;
+                        case 6:
+                            intent.putExtra("result", countOfRightAnswer * 10);
+                            break;
+                    }
+                    intent.putExtra("position", positionRestart);
+                    intent.putExtra("nextLevel", nextLevel);
+                    startActivity(intent);
+                    finishAndRemoveTask();
                 }
-                Intent intent = new Intent(ActivityGame.this, ScoreActivity.class);
-                switch (positionRestart){
-                    case 0: intent.putExtra("result", countOfRightAnswer);
-                        break;
-                    case 1: intent.putExtra("result", countOfRightAnswer *2);
-                        break;
-                    case 2: intent.putExtra("result", countOfRightAnswer *3);
-                        break;
-                    case 3: intent.putExtra("result", countOfRightAnswer *4);
-                        break;
-                    case 4: intent.putExtra("result", countOfRightAnswer * 6);
-                        break;
-                    case 5: intent.putExtra("result", countOfRightAnswer * 8);
-                        break;
-                    case 6: intent.putExtra("result", countOfRightAnswer * 10);
-                        break;
-                }
-                intent.putExtra("position", positionRestart);
-                intent.putExtra("nextLevel", nextLevel);
-                startActivity(intent);
-                finishAndRemoveTask();
             }
         };
         timer.start();
